@@ -15,7 +15,7 @@ class Matrix:
 
     def set_element(self, i, j, value):
         if i >= self.rows:
-            raise IndexError("Index i out of range")
+            raise IndexError(f"aaa i out of range {i}")
 
         if j >= self.cols:
             raise IndexError("Index j out of range")
@@ -24,7 +24,7 @@ class Matrix:
 
     def transpose(self):
         self.data = [[self.data[j][i] for j in range(self.rows)] for i in range(self.cols)]
-        self.rows, self.cols = self.cols, self.rows
+        #self.rows, self.cols = self.cols, self.rows
 
     def matrix_multiply(self, other_matrix):
         if self.cols != other_matrix.rows:
@@ -49,8 +49,11 @@ class Matrix:
     def __str__(self):
         # String representation of the matrix for better visualization
         return "\n".join([" ".join(map(str, row)) for row in self.data])
-
-
+    def display(self):
+        for i in range(self.rows):
+            for j in range(self.cols):
+                print(self.data[i][j], end=' ')
+            print()
 def main():
 
     number = 0
@@ -78,7 +81,10 @@ def main():
     matrix_b.set_element(2, 0, 9)
     matrix_b.set_element(2, 1, 5)
 
-    # matrix_b.set_element(3, 3, 1)
+    try:
+        matrix_b.set_element(3, 3, 1)
+    except Exception as es:
+        print(es)
     # print(matrix_b.get_element(1, 2))
 
     print("\nMatrix B:")
@@ -126,6 +132,8 @@ def main():
     matrix_a.transpose()
 
     print("\nTransposed Matrix A:")
+    print("HEEEEEEEEEEEEEEEEE")
+    matrix_a.display()
     print(matrix_a)
 
     print("\nTransposed Matrix A with Matrix B")
