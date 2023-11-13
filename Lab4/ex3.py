@@ -5,9 +5,21 @@ class Matrix:
         self.data = [[0] * cols for _ in range(rows)]
 
     def get_element(self, i, j):
+        if i >= self.rows:
+            raise IndexError("Index i out of range")
+
+        if j >= self.cols:
+            raise IndexError("Index j out of range")
+
         return self.data[i][j]
 
     def set_element(self, i, j, value):
+        if i >= self.rows:
+            raise IndexError("Index i out of range")
+
+        if j >= self.cols:
+            raise IndexError("Index j out of range")
+
         self.data[i][j] = value
 
     def transpose(self):
@@ -41,14 +53,19 @@ class Matrix:
 
 def main():
 
+    number = 0
     matrix_a = Matrix(2, 3)
+    for i in range(2):
+        for j in range(3):
+            matrix_a.set_element(i, j, number)
+            number = number + 1
 
-    matrix_a.set_element(0, 0, 4)
-    matrix_a.set_element(0, 1, 2)
-    matrix_a.set_element(0, 2, 6)
-    matrix_a.set_element(1, 0, 8)
-    matrix_a.set_element(1, 1, 1)
-    matrix_a.set_element(1, 2, 9)
+    # matrix_a.set_element(0, 0, 4)
+    # matrix_a.set_element(0, 1, 2)
+    # matrix_a.set_element(0, 2, 6)
+    # matrix_a.set_element(1, 0, 8)
+    # matrix_a.set_element(1, 1, 1)
+    # matrix_a.set_element(1, 2, 9)
 
     print("Matrix A:")
     print(matrix_a)
@@ -60,6 +77,9 @@ def main():
     matrix_b.set_element(1, 1, 7)
     matrix_b.set_element(2, 0, 9)
     matrix_b.set_element(2, 1, 5)
+
+    # matrix_b.set_element(3, 3, 1)
+    # print(matrix_b.get_element(1, 2))
 
     print("\nMatrix B:")
     print(matrix_b)
