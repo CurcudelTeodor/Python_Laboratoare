@@ -49,11 +49,13 @@ class Matrix:
     def __str__(self):
         # String representation of the matrix for better visualization
         return "\n".join([" ".join(map(str, row)) for row in self.data])
+
     def display(self):
         for i in range(self.rows):
             for j in range(self.cols):
                 print(self.data[i][j], end=' ')
             print()
+
 def main():
 
     number = 0
