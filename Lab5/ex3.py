@@ -1,8 +1,15 @@
+from datetime import datetime
+
+
 class Vehicle:
     def __init__(self, make, model, year):
         self.make = make
         self.model = model
-        self.year = year
+        current_year = datetime.now().year
+        if 1900 <= year <= current_year:
+            self.year = year
+        else:
+            raise ValueError(f"Invalid year {year}")
 
 
 class Car(Vehicle):
