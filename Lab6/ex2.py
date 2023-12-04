@@ -13,8 +13,10 @@ def rename_files(directory):
         # rename files with sequential number prefix
         for index, filename in enumerate(files, start=1):
             file_path = os.path.join(directory, filename)
-            filename_without_extension = filename.split('.')[0]
-            new_filename = f"{filename_without_extension}{index}.{filename.split('.')[-1]}"  # Preserve file extension
+
+            # use os.path.splitext to get the filename and extension separately
+            filename_without_extension, file_extension = os.path.splitext(filename)
+            new_filename = f"{filename_without_extension}{index}{file_extension}"
 
             try:
                 # rename the file

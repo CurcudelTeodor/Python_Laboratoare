@@ -9,8 +9,11 @@ def read_and_print_files(directory, file_extension):
 
         # iterate through files in the directory
         for filename in os.listdir(directory):
+            # use os.path.splitext to get the file extension
+            _, ext = os.path.splitext(filename)
+
             # check if the file has the specified extension
-            if filename.endswith(file_extension):
+            if ext == file_extension:
                 file_path = os.path.join(directory, filename)
 
                 try:
