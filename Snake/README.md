@@ -1,0 +1,1 @@
+To run: `> python guy.py table.json`
