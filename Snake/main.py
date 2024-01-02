@@ -1,6 +1,7 @@
 import sys
 import traceback
-import gui
+from gui import create_game_window
+from game import Game
 import json
 
 from settings import load_settings
@@ -24,12 +25,15 @@ def main():
         sys.exit(1)
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
-        traceback.print_exc()  # Print the full traceback for debugging
+        traceback.print_exc()
         sys.exit(1)
 
-    # main entry point
-    # game.start_game(settings_file)
-    gui.create_game_window(settings)
+    window, canvas, label = create_game_window(settings)
+    game = Game(canvas, settings, label)
+    game.start()
+
+    # start the Tkinter event loop and keep the GUI running, ensuring that the application remains interactive
+    window.mainloop()
 
 
 if __name__ == "__main__":

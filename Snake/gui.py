@@ -1,15 +1,8 @@
 from tkinter import Tk, Canvas, Label
-
-SPEED = 50
-SPACE_SIZE = 50
-BODY_PARTS = 3
-SNAKE_COLOR = "#00FF00"
-FOOD_COLOR = "#FF0000"
-BACKGROUND_COLOR = "#000000"
+from settings import *
 
 
 def create_game_window(settings):
-
     board_width = settings.get("board_width", 10)
     board_height = settings.get("board_height", 10)
 
@@ -28,11 +21,15 @@ def create_game_window(settings):
 
     center_window(window)
 
-    window.mainloop()
+    return window, canvas, label
 
 
 def center_window(window):
+    # make sure that the information (width and height) I get is up-to-date (processed internal tasks)
+    # done to ensure that the window has processed any pending idle tasks and has updated its dimensions before
+    # attempting to use them in calculations
     window.update_idletasks()
+
     window_width = window.winfo_width()
     window_height = window.winfo_height()
     screen_width = window.winfo_screenwidth()
@@ -42,5 +39,3 @@ def center_window(window):
     y = int((screen_height / 2) - (window_height / 2))
 
     window.geometry(f"{window_width}x{window_height}+{x}+{y}")
-
-

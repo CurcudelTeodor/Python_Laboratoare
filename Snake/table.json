@@ -1,4 +1,9 @@
 {
     "board_width": 12,
-    "board_height": 12
+    "board_height": 12,
+    "obstacles": [
+        {"x": 2, "y": 3},
+        {"x": 10, "y": 4},
+        {"x": 6, "y": 7}
+    ]
 }
