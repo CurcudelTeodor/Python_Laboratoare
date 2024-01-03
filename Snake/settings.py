@@ -1,3 +1,22 @@
+"""
+settings Module
+
+This module provides constants and functions for managing game settings.
+
+Constants:
+    INITIAL_SPEED (int): The initial speed of the game.
+    SPEED_INCREASE_FACTOR (int): The factor by which the speed increases.
+    SPACE_SIZE (int): The size of each cell in the game grid.
+    BODY_PARTS (int): The initial number of body parts for the snake.
+    SNAKE_COLOR (str): The color of the snake.
+    FOOD_COLOR (str): The color of the food.
+    BACKGROUND_COLOR (str): The background color of the game.
+
+Functions:
+    load_settings(file_path)
+        Loads game settings from a JSON file.
+
+"""
 import json
 
 INITIAL_SPEED = 100
@@ -10,6 +29,20 @@ BACKGROUND_COLOR = "#000000"
 
 
 def load_settings(file_path):
+    """
+    Loads game settings from a JSON file.
+
+    Parameters:
+        file_path (str): The path to the JSON file containing game settings.
+
+    Returns:
+        dict: Dictionary containing the loaded game settings.
+
+    Raises:
+        FileNotFoundError: If the specified file is not found.
+        json.JSONDecodeError: If there is an issue parsing JSON in the file.
+        Exception: If an unexpected error occurs while loading settings.
+    """
     try:
         with open(file_path, "r") as file:
             settings = json.load(file)

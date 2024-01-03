@@ -1,3 +1,13 @@
+"""
+main Module
+
+This module contains the main entry point for the Snake game.
+
+Functions:
+    main()
+        The main entry point for the Snake game.
+
+"""
 import sys
 import traceback
 from gui import create_game_window
@@ -8,6 +18,18 @@ from settings import load_settings
 
 
 def main():
+    """
+    The main entry point for the Snake game.
+
+    This function reads the settings file path from the command line arguments,
+    loads the game settings, creates the game window, and starts the game.
+
+    Command Line Usage:
+        python main.py <settings_file>
+
+    Raises:
+        SystemExit: If the command line arguments are invalid or an error occurs during execution.
+    """
     if len(sys.argv) != 2:
         print("Usage: python main.py <settings_file>")
         sys.exit(1)
