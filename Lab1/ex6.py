@@ -5,9 +5,9 @@ def palindrome(number):
     while number:
         digit = number % 10
         ogl = ogl * 10 + digit
-        number = number // 10
+        number = number // 10  # number = int (number / 10) print(number)
 
-    if number_copy == ogl:
+    if number_copy == ogl:  # or return number_copy == ogl
         return True
     else:
         return False
